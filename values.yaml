@@ -60,6 +60,15 @@ horizonNetScan:
   ## @param horizonNetScan.campaign The campaign to use for netscan 
   campaign: "kubernetes"
 
+
+## @section horizonConfiguration parameters
+## ref https://docs.evertrust.fr/horizon-cli/horizon-cli-guide/1.9/config#_configuration_content
+## e.g:
+## Specify the root CA certificate to use when connecting to the Horizon API if needed
+## horizonConfiguration:
+##    root_ca: "-----BEGIN CERTIFICATE-----\nMIIFFzCCAwGgAwIBAgIQEdKog...\n-----END CERTIFICATE-----"
+horizonCliConfiguration: {}
+
 ## @section horizonCredentials parameters
 horizonCredentials:
   ## @param horizonCredentials.endpoint Horizon endpoint

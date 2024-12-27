@@ -26,10 +26,22 @@ spec:
         spec:
           serviceAccountName: {{ include "horizon-cli.serviceAccountName" . }}
           {{- include "common.images.renderPullSecrets" (dict "images" (list .Values.image) "context" $) | nindent 10 }}
+          {{- if not (empty .Values.horizonCliConfiguration) }}
+          volumes:
+            - name: config
+              configMap:
+                name: {{ include "horizon-cli.fullname" . }}-config
+          {{- end }}
           containers:
             - name: horizon-cli-netscan
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
+              {{- if not (empty .Values.horizonCliConfiguration) }}
+              volumeMounts:
+                - name: config
+                  mountPath: /opt/horizon/etc/horizon-cli.conf
+                  subPath: horizon-cli.conf
+              {{- end }}
               envFrom:
                 - secretRef:
                     name: {{ include "horizon-cli.fullname" . }}-credentials
