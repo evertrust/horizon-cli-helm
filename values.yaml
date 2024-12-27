@@ -1,0 +1,116 @@
+## ref https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+## @param image.registry Horizon cli image registry
+## @param image.repository Horizon cli image repository
+## @param image.tag Horizon cli image tag (immutable tags are recommended)
+## @param image.pullPolicy Horizon cli image pull policy
+## @param image.pullSecrets Horizon cli image pull secrets
+image:
+  repository: quay.io/evertrust/horizon-cli
+  tag: sha-2a35067
+  pullPolicy: IfNotPresent
+  pullSecrets:
+      - pouet
+
+## @param nameOverride String to partially override horizon-cli.fullname
+nameOverride: ""
+
+## @param fullnameOverride String to fully override horizon-cli.fullname
+fullnameOverride: ""
+
+## @section serviceAccount parameters
+serviceAccount:
+  ## @param serviceAccount.create Whether to create a service account
+  create: true
+  ## @param serviceAccount.automount Whether to automount service account token
+  automount: true
+  ## @param serviceAccount.annotations Annotations to add to the service account
+  annotations: {}
+  ## @param serviceAccount.name Name of the service account
+  name: "horizon-cli"
+
+## @section horizonNetImport parameters
+horizonNetImport:
+  ## @param horizonNetImport.enabled Whether to enable netimport
+  enabled: true
+  ## @param horizonNetImport.suspend Whether to suspend netimport
+  suspend: false
+  ## @param horizonNetImport.schedule Cron expression for netimport job
+  schedule: "* * * * *"
+  ## @param horizonNetImport.successfulJobsHistoryLimit The number of successful finished jobs to retain.
+  successfulJobsHistoryLimit: 1
+  ## @param horizonNetImport.failedJobsHistoryLimit The number of failed finished jobs to retain.
+  failedJobsHistoryLimit: 3
+  ## @param horizonNetImport.backoffLimit The number of retries before giving up
+  backoffLimit: 3
+  ## @param horizonNetImport.campaign The campaign to use for netimport
+  campaign: "kubernetes"
+
+horizonNetScan:
+  ## @param horizonNetScan.enabled Whether to enable netscan
+  enabled: true
+  ## @param horizonNetScan.suspend Whether to suspend netscan
+  suspend: false
+  ## @param horizonNetScan.schedule Cron expression for netscan job
+  schedule: "* * * * *"
+  ## @param horizonNetScan.successfulJobsHistoryLimit The number of successful finished jobs to retain.
+  successfulJobsHistoryLimit: 1
+  ## @param horizonNetScan.failedJobsHistoryLimit The number of failed finished jobs to retain.
+  failedJobsHistoryLimit: 3
+  ## @param horizonNetScan.backoffLimit The number of retries before giving up
+  backoffLimit: 3
+  ## @param horizonNetScan.campaign The campaign to use for netscan 
+  campaign: "kubernetes"
+
+## @section horizonCredentials parameters
+horizonCredentials:
+  ## @param horizonCredentials.endpoint Horizon endpoint
+  endpoint: ""
+  ## @param horizonCredentials.apiID Horizon API ID
+  apiID: ""
+  ## @param horizonCredentials.apiKey Horizon API key
+  apiKey: ""
+
+## @param podAnnotations Annotations for Horizon cli pods
+## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+##
+podAnnotations: {}
+
+
+## @param podLabels Extra labels for Horizon cli pods
+## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+##
+podLabels: {}
+
+
+## @param podSecurityContext Security context for Horizon cli pods
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+##
+podSecurityContext: {}
+
+
+## @param securityContext Security context for Horizon cli containers
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+##
+securityContext: {}
+
+## horizon cli pods resource requests and limits
+## ref: https://kubernetes.io/docs/user-guide/compute-resources/
+## @param resources.limits [object] The resources limits
+## @param resources.requests [object] The requested resources
+resources: {}
+
+## @param nodeSelector Node labels for pod assignment
+## ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+nodeSelector: {}
+
+## @param tolerations Tolerations for pod assignment
+## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+##
+tolerations: []
+
+## @param affinity Affinity for pod assignment
+## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+## NOTE: podAffinityPreset, podAntiAffinityPreset, and nodeAffinityPreset will be ignored when it's set
+##
+affinity: {}
