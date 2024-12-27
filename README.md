@@ -15,5 +15,9 @@ cd horizon-cli-helm
 
 helm dependency build
 
-helm install horizon-cli .
+helm install horizon-cli . -f you_custom_values.yaml
 ```
+
+> [!NOTE]  
+> Don't forget to set your Horizon credentials.
+> You can do this by setting the `horizonCredentials.endpoint`, `horizonCredentials.apiID`, and `horizonCredentials.apiKey` values in your custom values file.
