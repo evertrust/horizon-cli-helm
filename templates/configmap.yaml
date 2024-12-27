@@ -1,0 +1,11 @@
+{{- if not (empty .Values.horizonCliConfiguration) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "horizon-cli.fullname" . }}-config
+  labels:
+    {{- include "horizon-cli.labels" . | nindent 4 }}
+data:
+  horizon-cli.conf: |
+    {{- .Values.horizonCliConfiguration | toJson | nindent 4 }}
+{{- end }}
