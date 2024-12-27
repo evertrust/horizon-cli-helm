@@ -2,7 +2,7 @@ apiVersion: v2
 name: horizon-cli
 description: EverTrust Horizon CLI Helm chart
 type: application
-version: 0.0.0
+version: 1.0.0
 appVersion: "1.10.1"
 home: https://evertrust.io
 sources:
