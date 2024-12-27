@@ -20,4 +20,4 @@ helm install horizon-cli evertrust/horizon-cli
 
 > [!NOTE]  
 > Don't forget to set your Horizon credentials.
-> You can do this by setting the `horizonCredentials.endpoint`, `horizonCredentials.apiID`, and `horizonCredentials.apiKey` values in your custom values file.
+> You can do this by setting the `horizonCliCredentials.endpoint`, `horizonCliCredentials.apiID`, and `horizonCliCredentials.apiKey` values in your custom values file.

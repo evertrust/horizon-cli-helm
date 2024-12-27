@@ -61,7 +61,7 @@ horizonNetScan:
   campaign: "kubernetes"
 
 
-## @section horizonConfiguration parameters
+## @section horizonCliConfiguration parameters
 ## ref https://docs.evertrust.fr/horizon-cli/horizon-cli-guide/1.9/config#_configuration_content
 ## e.g:
 ## Specify the root CA certificate to use when connecting to the Horizon API if needed
@@ -69,13 +69,13 @@ horizonNetScan:
 ##    root_ca: "-----BEGIN CERTIFICATE-----\nMIIFFzCCAwGgAwIBAgIQEdKog...\n-----END CERTIFICATE-----"
 horizonCliConfiguration: {}
 
-## @section horizonCredentials parameters
-horizonCredentials:
-  ## @param horizonCredentials.endpoint Horizon endpoint
+## @section horizonCliCredentials parameters
+horizonCliCredentials:
+  ## @param horizonCliCredentials.endpoint Horizon endpoint
   endpoint: ""
-  ## @param horizonCredentials.apiID Horizon API ID
+  ## @param horizonCliCredentials.apiID Horizon API ID
   apiID: ""
-  ## @param horizonCredentials.apiKey Horizon API key
+  ## @param horizonCliCredentials.apiKey Horizon API key
   apiKey: ""
 
 ## @param podAnnotations Annotations for Horizon cli pods
