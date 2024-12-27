@@ -8,8 +8,7 @@ image:
   repository: quay.io/evertrust/horizon-cli
   tag: sha-2a35067
   pullPolicy: IfNotPresent
-  pullSecrets:
-      - pouet
+  pullSecrets: []
 
 ## @param nameOverride String to partially override horizon-cli.fullname
 nameOverride: ""
