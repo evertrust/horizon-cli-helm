@@ -6,16 +6,16 @@ This is the official Helm Chart for installing Horizon cli on Kubernetes.
 
 ## Installation
 
-Add the Helm repo to your local repositories :
+add the helm repo to your local repositories :
 
 ```shell
-git clone https://github.com/evertrust/horizon-cli-helm.git
+helm repo add evertrust https://repo.evertrust.io/repository/charts
+```
 
-cd horizon-cli-helm
+you can then use the chart using the prefix you chose :
 
-helm dependency build
-
-helm install horizon-cli . -f you_custom_values.yaml
+```shell
+helm install horizon-cli evertrust/horizon-cli
 ```
 
 > [!NOTE]  
