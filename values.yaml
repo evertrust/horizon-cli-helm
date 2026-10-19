@@ -5,7 +5,7 @@
 ## @param image.pullPolicy Horizon cli image pull policy
 ## @param image.pullSecrets Horizon cli image pull secrets
 image:
-  repository: quay.io/evertrust/horizon-cli
+  repository: harbor.infra.evertrust.io/library/horizon-cli
   tag: sha-2a35067
   pullPolicy: IfNotPresent
   pullSecrets: []
